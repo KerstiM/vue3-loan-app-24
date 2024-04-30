@@ -1,0 +1,11 @@
+<template>
+  <header>
+    <img
+      alt="inbank-logo"
+      class="logo"
+      src="@/assets/wordmark.svg"
+      width="125"
+      height="125"
+    />
+  </header>
+</template>
