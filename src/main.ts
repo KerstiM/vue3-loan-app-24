@@ -1,4 +1,4 @@
-import './assets/main.css'
+import './assets/main.scss'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -12,7 +12,8 @@ import Slider from 'primevue/slider';
 import App from './App.vue'
 import router from './router'
 import PrimeVue from 'primevue/config';
-import 'primevue/resources/themes/aura-light-green/theme.css'
+import 'primevue/resources/themes/lara-light-purple/theme.css'
+//import 'primevue/resources/themes/aura-light-green/theme.css'
 
 const app = createApp(App)
 
