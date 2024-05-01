@@ -20,7 +20,8 @@
     "primeicons": "^7.0.0",
     "primevue": "^3.52.0",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue-screen": "^2.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.1.1",
