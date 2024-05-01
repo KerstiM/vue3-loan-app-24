@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .product {
   display: grid;
   grid-template-columns: 1fr;
