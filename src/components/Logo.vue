@@ -1,11 +1,32 @@
 <template>
-  <header>
+  <header class="header">
     <img
       alt="inbank-logo"
-      class="logo"
+      class="header__logo"
       src="@/assets/wordmark.svg"
-      width="125"
-      height="125"
     />
   </header>
 </template>
+
+<style scoped lang="scss">
+  @import '@/assets/main.scss';
+
+  .header {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 76px;
+    padding: 16px;
+    
+    &__logo {
+      width: auto;
+      height: auto;
+      max-height: 100%;
+    }
+
+    @media (min-width: $breakpoint-md) {
+        height: 116px;
+        padding: 24px 40px;
+    }
+  }
+</style>
