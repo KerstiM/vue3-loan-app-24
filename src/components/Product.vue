@@ -1,13 +1,26 @@
 <template>
   <div class="product">
     <div class="product__info-wrapper">
-      <p class="product__small-label">Mini loan</p>
-      <div>
-        <span class="product__large-label-cursive">Take charge </span>
-        <span class="product__large-label">of unexpected costs</span>
-      </div>
-      <p class="product__sub-info">Finance unforeseen expenses with Inbank. A quick and easy application process with an instant credit decision.</p>
-      <a href="#calculator" class="apply-now">Apply now</a>
+      <Info
+        smallLabel="Mini loan"
+        largeLabelCursive="Take charge "
+        largeLabel="of unexpected costs"
+        subInfo="Finance unforeseen expenses with Inbank. A quick and easy application process with an instant credit decision."
+        buttonText="Apply now"
+        link="#calculator"
+      >
+        <template #button>
+          <Button
+            as="a"
+            class="card__button w-a"
+            severity="secondary"
+            rounded
+            aria-label="apply-now"
+            label="Apply now"
+            href="#calculator"
+          />
+        </template>
+      </Info>
     </div>
     <div class="product__image-wrapper">
       <img src="../assets/product-mini-loan.jpg" alt="product-mini-loan" class="product__image">
@@ -21,13 +34,13 @@
   .product {
     display: grid;
     grid-template-columns: 1fr;
-    max-width: 1536px;
+    max-width: $screenWidth;
     padding: 16px 16px 40px 16px;
     margin: 0 auto;
 
     &__info-wrapper {
-      background: #D9D4A7;
-      border-radius: 100px;
+      background: $yellow;
+      border-radius: $borderRadiusSmall;
       padding: 64px 24px 64px 24px;
       align-content: center;
       text-align: center;
@@ -41,45 +54,13 @@
     }
 
     &__image {
-      border-radius: 100px;
+      border-radius: $borderRadiusSmall;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    &__sub-info,
-    &__small-label,
-    &__large-label,
-    &__large-label-cursive {
-      font-family: Inter;
-      text-align: center;
-    }
-
-    &__sub-info {
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 24px;
-    }
-
-    &__small-label {
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 24px;
-    }
-
-    &__large-label,
-    &__large-label-cursive {
-      font-family: Bitter;
-      font-size: 32px;
-      font-weight: 400;
-      line-height: 36px;
-    }
-
-    &__large-label-cursive {
-      font-style: italic;
     }
 
     @media (min-width: $breakpoint-md) {
@@ -89,7 +70,7 @@
 
       &__info-wrapper,
       &__image {
-        border-radius: 200px;
+        border-radius: $borderRadiusLarge;
       }
 
       &__info-wrapper {
@@ -99,12 +80,11 @@
       &__image-wrapper {
         order: 1;
       }
-
-      &__large-label,
-      &__large-label-cursive {
-        font-size: 68px;
-        line-height: 72px;
-      }
     }
   }
 </style>
+
+<script setup lang="ts">
+  import Info from './Info.vue'
+
+</script>
