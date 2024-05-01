@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { computed, defineProps } from 'vue';
+  import { computed } from 'vue';
   import { useGrid } from 'vue-screen';
   import { gridBreakpoints } from '@/utils/constants';
 
@@ -43,7 +43,10 @@
 
 <template>
   <div class="info__wrapper">
-    <p class="info__small-label">
+    <p
+      v-if="smallLabel"
+      class="info__small-label"
+    >
       {{ smallLabel }}
     </p>
 
