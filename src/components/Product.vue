@@ -40,7 +40,7 @@
 
     &__info-wrapper {
       background: $yellow;
-      border-radius: $borderRadiusSmall;
+      border-radius: $borderRadius100;
       padding: 64px 24px 64px 24px;
       align-content: center;
       text-align: center;
@@ -54,7 +54,7 @@
     }
 
     &__image {
-      border-radius: $borderRadiusSmall;
+      border-radius: $borderRadius100;
       position: absolute;
       top: 0;
       left: 0;
@@ -70,7 +70,7 @@
 
       &__info-wrapper,
       &__image {
-        border-radius: $borderRadiusLarge;
+        border-radius: $borderRadius200;
       }
 
       &__info-wrapper {
