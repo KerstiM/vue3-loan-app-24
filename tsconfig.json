@@ -2,10 +2,11 @@
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "node",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
   },
-  "paths": {
-    "@/*": ["./src/*"]
-  },
+  
   "files": [],
   "references": [
     {
