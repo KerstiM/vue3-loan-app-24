@@ -4,6 +4,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import Button from "primevue/button"
 import Dropdown from 'primevue/dropdown';
+import InputNumber from 'primevue/inputnumber';
 import InputText from 'primevue/inputtext';
 import FloatLabel from 'primevue/floatlabel';
 import Slider from 'primevue/slider';
@@ -18,9 +19,10 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.use(PrimeVue);
+app.use(PrimeVue, { unstyled: false });
 app.component('Button', Button);
 app.component('Dropdown', Dropdown);
+app.component('InputNumber', InputNumber);
 app.component('InputText', InputText);
 app.component('FloatLabel', FloatLabel);
 app.component('Slider', Slider);
