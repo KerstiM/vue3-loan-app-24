@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import Product from '../components/Product.vue'
-import Calculator from '../components/Calculator.vue'
-
+  import { CalculatorSection, Product } from '@/components'
 </script>
 
 <template>
   <main>
     <Product/>
-    <Calculator/>
+    <CalculatorSection/>
   </main>
 </template>

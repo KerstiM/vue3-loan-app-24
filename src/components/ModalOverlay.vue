@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { toRef } from 'vue';
-  import LabeledInput from './LabeledInput.vue';
+  import { Button } from '@/components';
+
   import { useProductStore } from '@/stores/productStore';
   import { useRouter } from 'vue-router';
   import { Form } from '@/types';
@@ -134,24 +135,11 @@
         </p>
         <Button
           icon="pi pi-times"
+          display="close"
           severity="secondary"
-          text
-          rounded
-          aria-label="Cancel"
           @click="closeModal"
-        />
+        ></Button>
       </div>
-    <!--
-      <LabeledInput
-        id="first_name"
-        label="First name"
-        :model-value="value"
-        @update:modelValue="value = $event"
-      >
-      
-      </LabeledInput>
-      -->
-      {{ form }}
         <FloatLabel class="modal-overlay__float-label">
           <InputText
             id="first_name"

@@ -1,3 +1,6 @@
+<script setup lang="ts">
+  import { Info, Button } from '@/components';
+</script>
 <template>
   <div class="product">
     <div class="product__info-wrapper">
@@ -12,13 +15,10 @@
         <template #button>
           <Button
             as="a"
-            class="card__button w-a"
-            severity="secondary"
-            rounded
-            aria-label="apply-now"
             label="Apply now"
             href="#calculator"
-          />
+            color="light"
+          ></Button>
         </template>
       </Info>
     </div>
@@ -83,8 +83,3 @@
     }
   }
 </style>
-
-<script setup lang="ts">
-  import Info from './Info.vue'
-
-</script>
