@@ -12,4 +12,6 @@ export type Form = {
   mobileNumber?: string;
   email?: string;
   monthlyIncome?: number;
+  loanAmount?: number,
+  loanPeriod?: number,
 }

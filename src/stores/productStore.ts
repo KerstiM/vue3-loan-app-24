@@ -9,6 +9,8 @@ export const useProductStore = defineStore('product', () => {
     mobileNumber: '',
     email: '',
     monthlyIncome: undefined,
+    loanAmount: undefined,
+    loanPeriod: undefined,
   });
 
   function updateForm(field: keyof Form, value: string | number | null) {
@@ -19,5 +21,24 @@ export const useProductStore = defineStore('product', () => {
     return form.value.monthlyIncome;
   }
 
-  return { form, updateForm, getMonthlyIncome }
+  const getFirstName = () => {
+    return form.value.firstName;
+  }
+
+  const getLoanAmount = () => {
+    return form.value.loanAmount;
+  }
+
+  const getLoanPeriod = () => {
+    return form.value.loanPeriod;
+  }
+
+  return {
+    form,
+    updateForm,
+    getMonthlyIncome,
+    getFirstName,
+    getLoanAmount,
+    getLoanPeriod
+  }
 })

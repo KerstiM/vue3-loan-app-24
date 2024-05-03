@@ -1,8 +1,30 @@
+<script setup lang="ts">
+  import { Card, Info } from '@/components'
+  import { useProductStore } from '@/stores/productStore';
+
+  const productStore = useProductStore();
+  const { form, getFirstName } = productStore;
+
+  import { useRouter } from 'vue-router';
+
+  const router = useRouter();
+
+  const onClick = () => {
+    router.push('/');
+  };
+</script>
+
 <template>
-  <div class="card">
-    <p>Dear Anna</p>
-    <p>Unfortunately, your loan was denied.</p>
-    <p>In addition to your income and expenses, a number of other factors play a role in loan decisions.</p>
-    <button>Exit</button>
-  </div>
+  getFirstName: {{ getFirstName() }}
+  <Card :first-name="getFirstName()">
+
+  </Card>
 </template>
+
+<style lang="scss">
+  @import '@/assets/main.scss';
+
+  body {
+    background-color: $lightGray;
+  }
+</style>
