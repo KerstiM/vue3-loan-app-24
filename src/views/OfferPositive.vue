@@ -47,8 +47,8 @@
         text: 'news',
         small: true
       }"
-      subInfo="Your loan has been approved."
     >
+      <p>Your loan has been approved</p>
       <ListItem
         label="Loan amount"
         :value="`${getLoanAmount()} €`"

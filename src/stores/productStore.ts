@@ -29,11 +29,15 @@ export const useProductStore = defineStore('product', () => {
     return form.loanPeriod;
   }
 
+  const getMonthlyPayment = () => {
+    return calculateMonthlyPayment;
+  }
+
   const calculateMonthlyPayment = computed(() => {  
     if (form.loanAmount && form.loanPeriod) {
       const monthlyPayment = form.loanAmount / form.loanPeriod;
   
-      return monthlyPayment.toFixed(2);
+      return +monthlyPayment.toFixed(2);
     } else {
       return 0;
     }
@@ -42,6 +46,7 @@ export const useProductStore = defineStore('product', () => {
   return {
     form,
     getMonthlyIncome,
+    getMonthlyPayment,
     getFirstName,
     getLoanAmount,
     getLoanPeriod,
