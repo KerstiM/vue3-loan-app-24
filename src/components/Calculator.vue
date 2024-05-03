@@ -210,7 +210,7 @@
       padding: 16px 40px 10px 10px;
     }
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-lg) {
       &__fields-wrapper {
         display: grid;
         grid-template-columns: 3fr 1fr;
@@ -230,11 +230,13 @@
           font-family: Inter;
           font-size: 16px;
           line-height: 24px;
+          margin-top: 40px;
         }
 
         &--large {
           font-size: 68px;
           line-height: 72px;
+          margin-bottom: 20px;
         }
       }
 

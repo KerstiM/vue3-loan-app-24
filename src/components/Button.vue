@@ -106,6 +106,10 @@
     line-height: 24px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+
+    .p-button-label {
+      font-weight: 400;
+    }
   }
 
   @include buttonColors('light', $lightYellow);

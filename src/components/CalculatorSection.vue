@@ -28,7 +28,7 @@ const submit = (event: Event) => {
         largeLabel="Calculate your  "
         :cursiveFirst="false"
       >
-        <p class="calculator__sub-info">
+        <p class="calculator-section__sub-info">
           Estimate your monthly payments based on the chosen loan amount and time period.
         </p>
       </Info>
@@ -56,7 +56,7 @@ const submit = (event: Event) => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
   @import '@/assets/main.scss';
 
   .calculator-section {
@@ -71,6 +71,11 @@ const submit = (event: Event) => {
       text-align: start;
     }
 
+    &__sub-info,
+    &__disclaimer {
+      opacity: 60%;
+    }
+
     &__disclaimer {
       font-family: Inter;
       font-size: 12px;
@@ -81,7 +86,11 @@ const submit = (event: Event) => {
       padding-top: 20px;
     }
 
-    @media (min-width: $breakpoint-md) {
+    &__info-wrapper {
+      text-align: center;
+    }
+
+    @media (min-width: $breakpoint-sm) {
       position: relative;
       display: grid;
       flex-direction: row;
