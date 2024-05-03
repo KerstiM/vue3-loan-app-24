@@ -158,7 +158,11 @@ const calculateMonthlyPayment = computed(() => {
       }
 
       .p-slider-handle:after {
-        content: url('@/assets/drag-button.svg');
+        content: url('@/assets/drag-icons.svg');
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
       .p-slider-range {
