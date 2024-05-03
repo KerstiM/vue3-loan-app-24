@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import Slider from 'primevue/slider';
-
-const amount = ref<number>(1500);
-const periodIndex = ref<number>(48);
+import { useProductStore } from '@/stores/productStore';
+const productStore = useProductStore();
+const { form, calculateMonthlyPayment } = productStore;
+const loanPeriodRef = ref(productStore.form.loanPeriod);
 
 const minAmount = 300;
 const maxAmount = 7200;
@@ -19,19 +20,19 @@ const monthlyPaymentOptions = ref([
   { periodLabel: '72 months', periodValue: 72 },
 ]);
 
-const selectedOption = ref(monthlyPaymentOptions.value.find(option => option.periodValue === periodIndex.value));
+const selectedOption = ref(monthlyPaymentOptions.value.find(option => option.periodValue === form.loanPeriod));
 
-const updatePeriodIndex = () => {
+const updateDropdownValueToClosestSliderValue = () => {
   if (selectedOption.value) {
-    periodIndex.value = selectedOption.value.periodValue;
+    form.loanPeriod = selectedOption.value.periodValue;
   }
 };
 
 const updateSelectedOption = () => {
-  selectedOption.value = monthlyPaymentOptions.value.find(option => option.periodValue === periodIndex.value);
+  selectedOption.value = monthlyPaymentOptions.value.find(option => option.periodValue === form.loanPeriod);
 };
 
-watch(periodIndex, updateSelectedOption);
+watch(loanPeriodRef, updateSelectedOption);
 
 const updateSliderValueToClosestDropdownValue = (value: number) => {
   const closestPeriodValue = monthlyPaymentOptions.value.reduce((prev, curr) => {
@@ -40,21 +41,8 @@ const updateSliderValueToClosestDropdownValue = (value: number) => {
       : prev;
   });
 
-  periodIndex.value = closestPeriodValue.periodValue;
+  selectedOption.value = closestPeriodValue;
 };
-
-const calculateMonthlyPayment = computed(() => {
-  const selectedAmount = amount.value;
-
-  if (selectedOption.value) {
-    const selectedPeriod = selectedOption.value.periodValue;
-    const monthlyPayment = selectedAmount / selectedPeriod;
-
-    return monthlyPayment.toFixed(2);
-  } else {
-    return 0;
-  }
-});
 </script>
 
 <template>
@@ -66,7 +54,7 @@ const calculateMonthlyPayment = computed(() => {
       <div class="calculator__cell--1">
         <FloatLabel>
           <InputNumber
-            v-model="amount"
+            v-model="form.loanAmount"
             :min="minAmount"
             :max="maxAmount"
             id="amount"
@@ -78,7 +66,7 @@ const calculateMonthlyPayment = computed(() => {
       <div class="calculator__cell--2">
         <div class="calculator__slider-wrapper">
           <Slider
-            v-model="amount"
+            v-model="form.loanAmount"
             :min="minAmount"
             :max="maxAmount"
             :step="100"
@@ -99,7 +87,7 @@ const calculateMonthlyPayment = computed(() => {
             :options="monthlyPaymentOptions"
             optionLabel="periodLabel"
             class="calculator__field--input"
-            @change="updatePeriodIndex"
+            @change="updateDropdownValueToClosestSliderValue"
           />
           <label for="period">Period</label>
         </FloatLabel>
@@ -107,7 +95,7 @@ const calculateMonthlyPayment = computed(() => {
       <div class="calculator__cell--4">
         <div class="calculator__slider-wrapper">
           <Slider
-            v-model="periodIndex"
+            v-model="form.loanPeriod"
             :min="minPeriod"
             :max="maxPeriod"
             :step="1"

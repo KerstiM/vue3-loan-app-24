@@ -4,6 +4,10 @@
   import { useGrid } from 'vue-screen';
   import { gridBreakpoints } from '@/utils/constants';
   import { computed } from 'vue';
+  import { useProductStore } from '@/stores/productStore';
+
+  const productStore = useProductStore();
+  const { getLoanAmount, getLoanPeriod, calculateMonthlyPayment } = productStore;
 
   const grid = useGrid(gridBreakpoints);
   const router = useRouter();
@@ -47,17 +51,17 @@
     >
       <ListItem
         label="Loan amount"
-        value="2 500 €"
+        :value="`${getLoanAmount()} €`"
         no-bottom-border
       />
       <ListItem
         label="Loan period"
-        value="48 months"
+        :value="`${getLoanPeriod()} months`"
         no-bottom-border
       />
       <ListItem
         label="Monthly payment"
-        value="144.84 €"
+        :value="`${calculateMonthlyPayment} €`"
       />
       <template #button>
         <Button

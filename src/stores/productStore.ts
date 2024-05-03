@@ -1,44 +1,50 @@
-import { ref, computed } from 'vue'
+import { ref, computed, reactive } from 'vue'
 import { defineStore } from 'pinia'
 import type { Form } from '@/types';
 
 export const useProductStore = defineStore('product', () => {
-  const form = ref<Form>({
+  const form = reactive<Form>({
     firstName: '',
     lastName: '',
     mobileNumber: '',
     email: '',
     monthlyIncome: undefined,
-    loanAmount: undefined,
-    loanPeriod: undefined,
+    loanAmount: 1500,
+    loanPeriod: 48,
   });
 
-  function updateForm(field: keyof Form, value: string | number | null) {
-    form.value[field] = value;
-  }
-
   const getMonthlyIncome = () => {
-    return form.value.monthlyIncome;
+    return form.monthlyIncome;
   }
 
   const getFirstName = () => {
-    return form.value.firstName;
+    return form.firstName;
   }
 
   const getLoanAmount = () => {
-    return form.value.loanAmount;
+    return form.loanAmount;
   }
 
   const getLoanPeriod = () => {
-    return form.value.loanPeriod;
+    return form.loanPeriod;
   }
+
+  const calculateMonthlyPayment = computed(() => {  
+    if (form.loanAmount && form.loanPeriod) {
+      const monthlyPayment = form.loanAmount / form.loanPeriod;
+  
+      return monthlyPayment.toFixed(2);
+    } else {
+      return 0;
+    }
+  });
 
   return {
     form,
-    updateForm,
     getMonthlyIncome,
     getFirstName,
     getLoanAmount,
-    getLoanPeriod
+    getLoanPeriod,
+    calculateMonthlyPayment,
   }
 })

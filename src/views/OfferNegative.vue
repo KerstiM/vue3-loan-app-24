@@ -3,7 +3,7 @@
   import { useProductStore } from '@/stores/productStore';
 
   const productStore = useProductStore();
-  const { form, getFirstName } = productStore;
+  const { getFirstName } = productStore;
 
   import { useRouter } from 'vue-router';
 
