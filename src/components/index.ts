@@ -5,6 +5,5 @@ export { default as Card } from './Card.vue';
 export { default as Info } from './Info.vue';
 export { default as ListItem } from './ListItem.vue';
 export { default as Logo } from './Logo.vue';
-export { default as Modal } from './Modal.vue';
 export { default as ModalOverlay } from './ModalOverlay.vue';
 export { default as Product } from './Product.vue';
