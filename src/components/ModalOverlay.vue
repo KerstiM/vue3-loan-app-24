@@ -189,7 +189,7 @@
           label="Submit"
           rounded
           @click="onSubmit"
-        />
+        ></Button>
       </dialog>
     </div>
   </transition>
@@ -217,6 +217,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      z-index: 2;
     }
 
     &__heading {

@@ -50,13 +50,17 @@
         text: toTitleCase(firstName),
         small: true
       }"
-      subInfo="Unfortunately, your loan was denied."
     >
-      <span class="card__separator"></span>
-      <p class="card__sub-info">
-        In addition to your income and expenses, a number of other factors play a role in loan decisions.
-      </p>
-      <span class="card__separator"></span>
+      <div class="card__sub-info">
+        <p>
+          Unfortunately, your loan was denied.
+        </p>
+        <span class="card__separator"></span>
+        <p >
+          In addition to your income and expenses, a number of other factors play a role in loan decisions.
+        </p>
+        <span class="card__separator"></span>
+      </div>
       <template #button>
         <Button
           class="card__button"

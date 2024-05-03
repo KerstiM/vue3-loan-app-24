@@ -26,9 +26,12 @@ const submit = (event: Event) => {
       <Info
         largeLabelCursive="monthly payment"
         largeLabel="Calculate your  "
-        subInfo="Estimate your monthly payments based on the chosen loan amount and time period."
         :cursiveFirst="false"
-      />
+      >
+        <p class="calculator__sub-info">
+          Estimate your monthly payments based on the chosen loan amount and time period.
+        </p>
+      </Info>
     </div>
     <div class="calculator-section__right-wrapper">
       <Calculator></Calculator>

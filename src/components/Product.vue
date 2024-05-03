@@ -8,10 +8,12 @@
         smallLabel="Mini loan"
         largeLabelCursive="Take charge "
         largeLabel="of unexpected costs"
-        subInfo="Finance unforeseen expenses with Inbank. A quick and easy application process with an instant credit decision."
         buttonText="Apply now"
         link="#calculator"
       >
+        <p class="product__sub-info">
+          Finance unforeseen expenses with Inbank. A quick and easy application process with an instant credit decision.
+        </p>
         <template #button>
           <Button
             as="a"

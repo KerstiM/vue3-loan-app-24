@@ -9,7 +9,6 @@
     smallLabel: String,
     largeLabelCursive: [String, Object],
     largeLabel: [String, Object],
-    subInfo: String,
     buttonText: String,
     link: {
       type: String,
@@ -78,10 +77,6 @@
         {{ largeLabelCursiveText }}
       </span>
     </div>
-
-    <p class="info__sub-info">
-      {{ subInfo }}
-    </p>
     <slot name="default"/>
     <slot name="button" />
   </div>
@@ -91,7 +86,6 @@
   @import '@/assets/main.scss';
 
   .info {
-    &__sub-info,
     &__small-label,
     &__large-label,
     &__large-label-cursive {
@@ -99,16 +93,8 @@
       text-align: center;
     }
 
-    &__sub-info,
     &__small-label {
       line-height: 24px;
-    }
-
-    &__sub-info {
-      font-weight: 400;
-    }
-
-    &__small-label {
       font-weight: 500;
     }
 
