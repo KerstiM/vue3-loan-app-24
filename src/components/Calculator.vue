@@ -28,8 +28,7 @@ const updatePeriodIndex = () => {
 };
 
 const updateSelectedOption = () => {
-  selectedOption.value = monthlyPaymentOptions.value
-    .find(option => option.periodValue === periodIndex.value);
+  selectedOption.value = monthlyPaymentOptions.value.find(option => option.periodValue === periodIndex.value);
 };
 
 watch(periodIndex, updateSelectedOption);

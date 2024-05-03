@@ -19,7 +19,7 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.use(PrimeVue, { unstyled: false });
+app.use(PrimeVue);
 app.component('Button', Button);
 app.component('Dropdown', Dropdown);
 app.component('InputNumber', InputNumber);

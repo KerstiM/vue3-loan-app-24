@@ -15,7 +15,6 @@
 </script>
 
 <template>
-  getFirstName: {{ getFirstName() }}
   <Card :first-name="getFirstName()">
 
   </Card>

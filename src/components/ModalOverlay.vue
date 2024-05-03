@@ -51,7 +51,7 @@
   });
 
   const emit = defineEmits<{
-      'close': [value: Event]
+      'close': [value: void]
   }>();
 
   const visibleRef = toRef(props, 'visible');
