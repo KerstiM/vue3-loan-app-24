@@ -1,43 +1,28 @@
 <script setup lang="ts">
   import { toRef } from 'vue';
-  import { Button } from '@/components';
-
   import { useProductStore } from '@/stores/productStore';
   import { useRouter } from 'vue-router';
-  import { Form } from '@/types';
+  import { Button } from '@/components';
+  import { useFormValidation } from '@/composables/formValidation';
 
   const productStore = useProductStore();
-  const { form, updateForm } = productStore;
+  const { form } = productStore;
+  const { v$ } = useFormValidation(form);
   const router = useRouter();
 
-  function updateFirstName(event: Event) {
-    const target = event.target as HTMLInputElement;
+  async function onSubmit() {
+    const result = await v$.value.$validate();
 
-    productStore.updateForm('firstName', target.value);
-  }
-
-  function updateLastName(event: Event) {
-    const target = event.target as HTMLInputElement;
-
-    productStore.updateForm('lastName', target.value)
-  }
-
-  function updateMobileNumber(event: Event) {
-    const target = event.target as HTMLInputElement;
-
-    productStore.updateForm('mobileNumber', target.value)
-  }
-
-  function updateEmail(event: Event) {
-    const target = event.target as HTMLInputElement;
-
-    productStore.updateForm('email', target.value)
-  }
-
-  function updateMonthlyIncome(event: Event) {
-    const target = event.target as HTMLInputElement;
-
-    productStore.updateForm('monthlyIncome', target.value)
+    if (!result) {
+      return
+    } else {
+      const sum = productStore.getMonthlyIncome();
+      if (sum && sum > 1000) {
+        router.push('/positive');
+      } else {
+        router.push('/negative');
+      }
+    }
   }
 
   type Props = {
@@ -64,52 +49,6 @@
     const overlay = event.target as HTMLElement;
     if (overlay.classList.contains('modal-overlay')) {
       closeModal();
-    }
-  };
-
-  const validateForm = () => {
-    const errors: Form = {};
-
-    if (!form.firstName.trim()) {
-      errors.firstName = "First name is required";
-    }
-
-    if (!form.lastName.trim()) {
-      errors.lastName = "Last name is required";
-    }
-
-    const mobileRegex = /^55\d{7,8}$/;
-    if (!mobileRegex.test(form.mobileNumber.trim())) {
-      errors.mobileNumber = "Mobile number must start with '55' and have 7 or 8 digits";
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email.trim())) {
-      errors.email = "Invalid email format";
-    }
-
-    const monthlyIncome = parseFloat(form.monthlyIncome);
-    if (isNaN(monthlyIncome)) {
-      errors.monthlyIncome = "Monthly income must a number";
-    }
-
-    return errors;
-  };
-
-  const onSubmit = (event: Event) => {
-    event.preventDefault();
-
-    const errors = validateForm();
-
-    if (Object.keys(errors).length === 0) {
-      const sum = productStore.getMonthlyIncome();
-      if (sum && sum > 100) {
-        router.push('/positive');
-      } else {
-        router.push('/negative');
-      }
-    } else {
-      console.log("Form contains errors:", errors);
     }
   };
 </script>
@@ -144,45 +83,70 @@
             id="first_name"
             class="modal-overlay__float-input"
             v-model="form.firstName"
-            @input="updateFirstName"
           />
           <label for="first_name">First name</label>
+          <div
+            v-if="v$.firstName.$error"
+            class="modal-overlay__error-message"
+          >
+            {{ v$.firstName.$errors[0].$message }}
+          </div>
         </FloatLabel>
         <FloatLabel class="modal-overlay__float-label">
           <InputText
             id="last_name"
             class="modal-overlay__float-input"
             v-model="form.lastName"
-            @input="updateLastName"
           />
           <label for="last_name">Last name</label>
+          <div
+            v-if="v$.lastName.$error"
+            class="modal-overlay__error-message"
+          >
+            {{ v$.lastName.$errors[0].$message }}
+          </div>
         </FloatLabel>
         <FloatLabel class="modal-overlay__float-label">
           <InputText
             id="mobile_number"
             class="modal-overlay__float-input"
             v-model="form.mobileNumber"
-            @input="updateMobileNumber"
           />
-          <label for="username">Mobile number</label>
+          <label for="mobile_number">Mobile number</label>
+          <div
+            v-if="v$.mobileNumber.$error"
+            class="modal-overlay__error-message"
+          >
+            {{ v$.mobileNumber.$errors[0].$message }}
+          </div>
         </FloatLabel>
         <FloatLabel class="modal-overlay__float-label">
           <InputText
-            id="username"
+            id="email"
             class="modal-overlay__float-input"
             v-model="form.email"
-            @input="updateEmail"
           />
-          <label for="username">E-mail</label>
+          <label for="email">E-mail</label>
+          <div
+            v-if="v$.email.$error"
+            class="modal-overlay__error-message"
+          >
+            {{ v$.email.$errors[0].$message }}
+          </div>
         </FloatLabel>
         <FloatLabel class="modal-overlay__float-label">
           <InputText
-            id="username"
+            id="income"
             class="modal-overlay__float-input"
             v-model="form.monthlyIncome"
-            @input="updateMonthlyIncome"
           />
-          <label for="username">Monthly income</label>
+          <label for="income">Monthly income</label>
+          <div
+            v-if="v$.monthlyIncome.$error"
+            class="modal-overlay__error-message"
+          >
+            {{ v$.monthlyIncome.$errors[0].$message }}
+          </div>
         </FloatLabel>
         <Button
           label="Submit"
@@ -198,6 +162,12 @@
 
   .modal-overlay {
     background-color: rgba(0, 0, 0, 0.5);
+
+    &__error-message {
+      color: red;
+      font-size: 12px;
+      padding-right: 12px;
+    }
 
     &__content{
       border-radius: 30px 30px 0 0;
@@ -229,13 +199,6 @@
       margin: 0;
     }
 
-    &__heading {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-
     &__float-label {
       font-family: Inter;
       font-size: 16px;
@@ -243,6 +206,7 @@
       line-height: 24px;
       text-align: left;
       display: flex;
+      flex-direction: column;
       justify-content: stretch;
     }
 
@@ -250,7 +214,6 @@
       width: 100%;
       height: 48px;
     }
-
 
     @media (min-width: $breakpoint-sm) {
       top: 0;
