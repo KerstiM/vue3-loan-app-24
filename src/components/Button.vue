@@ -5,10 +5,9 @@
     label: String,
     display: {
       type: String,
-      default: 'narrow',
+      default: 'default',
       validator: (display: string) => [
-        'narrow',
-        'block',
+        'default',
         'close'
       ].includes(display),
     },
@@ -79,11 +78,7 @@
 
     .button--#{$displayType} {
 
-      @if $displayType == 'narrow' {
-        
-      } @else if $displayType == 'block' {
-        width: 100%;
-      } @else if $displayType == 'close' {
+      @if $displayType == 'close' {
         background: none;
         border-radius: $buttonHeightWidth;
         width: auto;

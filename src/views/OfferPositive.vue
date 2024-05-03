@@ -22,33 +22,35 @@
 </script>
 
 <template>
-  <div class="card">
-    <div class="card__left-wrapper">
+  <div class="card-positive">
+    <div class="card-positive__left-wrapper">
       <img
         v-if="computedImage"
         src="../assets/small-loan.svg"
         alt="small-loan"
-        class="card__image"
+        class="card-positive__image"
       >
       <img
         v-else
         src="../assets/mobile-small-loan.svg"
         alt="mobile-small-loan"
-        class="card__image"
+        class="card-positive__image"
       >
     </div>
     <Info
-      class="card__right-wrapper"
+      class="card-positive__right-wrapper"
       :largeLabelCursive="{
         text: 'Good ',
         small: true
       }"
       :largeLabel="{
-        text: 'news',
+        text: 'news!',
         small: true
       }"
     >
-      <p>Your loan has been approved</p>
+      <p class="card-positive__sub-info">
+        Your loan has been approved
+      </p>
       <ListItem
         label="Loan amount"
         :value="`${getLoanAmount()} €`"
@@ -65,7 +67,7 @@
       />
       <template #button>
         <Button
-          class="card__button"
+          class="card-positive__button"
           label="Back to home page"
           @click="onClick"
         ></Button>
@@ -81,7 +83,7 @@
     background-color: $lightGray;
   }
 
-  .card {
+  .card-positive {
     display: grid;
     grid-template-columns: 1fr;
     flex-direction: column;

@@ -72,6 +72,10 @@
       object-fit: cover;
     }
 
+    &__sub-info {
+      opacity: 90%;
+    }
+
     @media (min-width: $breakpoint-md) {
       grid-template-columns: 2fr 3fr;
       grid-auto-columns: auto;

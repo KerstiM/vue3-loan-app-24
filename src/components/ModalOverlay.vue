@@ -59,14 +59,14 @@
       v-if="visible"
       ref="overlay"
       class="modal-overlay"
-      @close="emit('close', $event)"
+      @close="emit('close')"
     >
       <dialog
         ref="dialog"
         open
         tabindex="-1"
         class="modal-overlay__content"
-        @keyup.esc="emit('close', $event)"
+        @keyup.esc="emit('close')"
       >
       <div class="modal-overlay__heading">
         <p class="modal-overlay__title">
@@ -78,6 +78,7 @@
           @click="closeModal"
         ></Button>
       </div>
+      
         <FloatLabel class="modal-overlay__float-label">
           <InputText
             id="first_name"
@@ -92,6 +93,7 @@
             {{ v$.firstName.$errors[0].$message }}
           </div>
         </FloatLabel>
+
         <FloatLabel class="modal-overlay__float-label">
           <InputText
             id="last_name"
@@ -106,6 +108,7 @@
             {{ v$.lastName.$errors[0].$message }}
           </div>
         </FloatLabel>
+
         <FloatLabel class="modal-overlay__float-label">
           <InputText
             id="mobile_number"
@@ -120,6 +123,7 @@
             {{ v$.mobileNumber.$errors[0].$message }}
           </div>
         </FloatLabel>
+
         <FloatLabel class="modal-overlay__float-label">
           <InputText
             id="email"
@@ -134,6 +138,7 @@
             {{ v$.email.$errors[0].$message }}
           </div>
         </FloatLabel>
+
         <FloatLabel class="modal-overlay__float-label">
           <InputText
             id="income"
@@ -148,6 +153,7 @@
             {{ v$.monthlyIncome.$errors[0].$message }}
           </div>
         </FloatLabel>
+
         <Button
           label="Submit"
           @click="onSubmit"
@@ -157,14 +163,14 @@
   </transition>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
   @import '@/assets/main.scss'; 
 
   .modal-overlay {
     background-color: rgba(0, 0, 0, 0.5);
 
     &__error-message {
-      color: red;
+      color: $error;
       font-size: 12px;
       padding-right: 12px;
     }

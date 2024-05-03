@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { useVuelidate } from '@vuelidate/core';
 import { required, email, minValue, minLength, maxLength } from '@vuelidate/validators'
 import type { Form } from '@/types';

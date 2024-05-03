@@ -13,6 +13,7 @@ $white: #fff;
 $lightGray: #FBFBF9;
 $lightYellow: #F0F0EA;
 $yellow: #D9D4A7;
+$error: #EB5757;
 
 // Numbers
 $screenWidth: 1536px;
@@ -22,4 +23,6 @@ $borderRadius200: 200px;
 body {
   background: $white;
   color: $purple;
+  font-weight: 400;
+  font-family: Inter;
 }
