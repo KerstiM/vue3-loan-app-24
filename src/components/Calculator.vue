@@ -63,7 +63,7 @@ const calculateMonthlyPayment = computed(() => {
     id="calculator"
   >
     <div class="calculator__fields-wrapper">
-      <div class="cell1">
+      <div class="calculator__cell--1">
         <FloatLabel>
           <InputNumber
             v-model="amount"
@@ -75,21 +75,23 @@ const calculateMonthlyPayment = computed(() => {
           <label for="amount">Amount</label>
         </FloatLabel>
       </div>
-      <div class="cell2">
-        <Slider
-          v-model="amount"
-          :min="minAmount"
-          :max="maxAmount"
-          :step="100"
-          ariaLabel="Period"
-          class="calculator__field--slider"
-        />
+      <div class="calculator__cell--2">
+        <div class="calculator__slider-wrapper">
+          <Slider
+            v-model="amount"
+            :min="minAmount"
+            :max="maxAmount"
+            :step="100"
+            ariaLabel="Period"
+            class="calculator__field--slider"
+          />
+        </div>
         <div class="calculator__field--labels">
           <span>{{ minAmount }} €</span>
           <span>{{ maxAmount }} €</span>
         </div>
       </div>
-      <div class="cell3">
+      <div class="calculator__cell--3">
         <FloatLabel class="w-full">
           <Dropdown
             v-model="selectedOption"
@@ -102,15 +104,17 @@ const calculateMonthlyPayment = computed(() => {
           <label for="period">Period</label>
         </FloatLabel>
       </div>
-      <div class="cell4">
-        <Slider
-          v-model="periodIndex"
-          :min="minPeriod"
-          :max="maxPeriod"
-          :step="1"
-          class="calculator__field--slider"
-          @change="updateSliderValueToClosestDropdownValue"
-        />
+      <div class="calculator__cell--4">
+        <div class="calculator__slider-wrapper">
+          <Slider
+            v-model="periodIndex"
+            :min="minPeriod"
+            :max="maxPeriod"
+            :step="1"
+            class="calculator__field--slider"
+            @change="updateSliderValueToClosestDropdownValue"
+          />
+        </div>
         <div class="calculator__field--labels">
           <span>{{ minPeriod }} months</span>
           <span>{{ maxPeriod }} months</span>
@@ -146,15 +150,16 @@ const calculateMonthlyPayment = computed(() => {
 
     &__field--slider {
       position: relative;
-      background: rgba($purple, 0.1);
+      background: $purple-10;
 
       .p-slider-handle {
         background: $lightPurple;
+        border-radius: 100px;
+        border: none;
         width: 52px;
         height: 36px;
-        border-radius: 100px;
         top: -6px;
-        border: none;
+        z-index: 1;
       }
 
       .p-slider-handle:after {
@@ -166,16 +171,31 @@ const calculateMonthlyPayment = computed(() => {
       }
 
       .p-slider-range {
+        margin-left: -10px;
+      }
+
+      .p-slider-range {
         background: $purple;
         height: 4px;
         border-radius: 4px;
       }
     }
+    &__field--slider:after {
+      content: '';
+      background: rgba($purple, 0.1);
+      height: 4px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: -40px;
+      border-radius: 100px;
+      border: none;
+    }
 
     &__field--labels {
       display: flex;
       justify-content: space-between;
-      margin-top: 20px;
+      margin-top: 12px;
       font-family: Inter;
       font-size: 14px;
       font-weight: 400;
@@ -212,19 +232,23 @@ const calculateMonthlyPayment = computed(() => {
       }
     }
 
-    .cell2 {
-      grid-row: 2;
+    &__cell {
+      &--1,
+      &--3 {
+        margin-top: 40px;
+      }
+
+      &--2 {
+        grid-row: 2;
+      }
+
+      &--4 {
+        grid-row: 4;
+      }
     }
 
-    .cell4 {
-      grid-row: 4;
-    }
-
-    .cell1,
-    .cell2,
-    .cell3,
-    .cell4 {
-      padding: 10px 0;
+    &__slider-wrapper {
+      padding: 16px 40px 10px 10px;
     }
 
     @media (min-width: $breakpoint-md) {
@@ -255,19 +279,48 @@ const calculateMonthlyPayment = computed(() => {
         }
       }
 
-      .cell1,
-      .cell2,
-      .cell3,
-      .cell4 {
-        padding: 10px 0;
+      &__field--slider {
+        .p-slider-handle:after {
+          content: url('@/assets/drag-icons.svg');
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        .p-slider-range {
+          margin-left: -10px;
+        }
       }
 
-      .cell2 {
-        grid-row: 1;
+      &__field--slider:after {
+        content: '';
+        background: rgba($purple, 0.1);
+        height: 4px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: -40px;
+        border-radius: 100px;
+        border: none;
       }
 
-      .cell4 {
-        grid-row: 2;
+      &__slider-wrapper {
+        padding: 16px 40px 10px 10px;
+      }
+
+      &__cell {
+        &--1,
+        &--3 {
+          margin-top: 0;
+        }
+        &--2 {
+          grid-row: 1;
+        }
+
+        &--4 {
+          grid-row: 2;
+        }
       }
     }
   }
