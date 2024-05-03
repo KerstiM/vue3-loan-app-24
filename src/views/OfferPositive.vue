@@ -62,8 +62,6 @@
       <template #button>
         <Button
           class="card__button"
-          rounded
-          aria-label="back-to-home-page"
           label="Back to home page"
           @click="onClick"
         ></Button>

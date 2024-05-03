@@ -1,5 +1,12 @@
 <script setup lang="ts">
   import { Info, Button } from '@/components';
+
+  const scrollToCalculator = () => {
+    const calculatorSection = document.getElementById('calculator');
+    if (calculatorSection) {
+      calculatorSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 </script>
 
 <template>
@@ -17,10 +24,9 @@
         </p>
         <template #button>
           <Button
-            as="a"
             label="Apply now"
-            href="#calculator"
             color="light"
+            @click="scrollToCalculator"
           ></Button>
         </template>
       </Info>

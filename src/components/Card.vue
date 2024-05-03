@@ -64,8 +64,6 @@
       <template #button>
         <Button
           class="card__button"
-          rounded
-          aria-label="exit"
           label="Exit"
           @click="onClick"
         ></Button>

@@ -3,15 +3,6 @@
 
   const props = defineProps({
     label: String,
-    as: {
-      type: String,
-      default: 'button',
-      validator: (type: string) => [
-        'button',
-        'a',
-      ].includes(type),
-    },
-    href: String,
     display: {
       type: String,
       default: 'narrow',
@@ -41,21 +32,13 @@
       [`button--${props.color}`]: props.color,
     };
   });
-
-  const handleClick = () => {
-    console.log('Button clicked')
-  }
-
-  const isLink = computed(() => props.as === 'a')
 </script>
 
 <template>
   <Button
-    :as="as"
     class="button"
     :class="classes"
     :label="label"
-    :href="href"
     :display="display"
     :background="color"
     :disabled="disabled"
@@ -103,7 +86,8 @@
       } @else if $displayType == 'close' {
         background: none;
         border-radius: $buttonHeightWidth;
-        padding: 4px 4px 4px 8px;
+        width: auto;
+        padding: 0 4px;
 
         &:hover {
           background-color: darken($white, 5%);

@@ -136,7 +136,6 @@
         <Button
           icon="pi pi-times"
           display="close"
-          severity="secondary"
           @click="closeModal"
         ></Button>
       </div>
@@ -187,7 +186,6 @@
         </FloatLabel>
         <Button
           label="Submit"
-          rounded
           @click="onSubmit"
         ></Button>
       </dialog>
