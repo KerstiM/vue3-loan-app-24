@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { Info, Button } from '@/components';
 </script>
+
 <template>
   <div class="product">
     <div class="product__info-wrapper">

@@ -12,10 +12,16 @@
   const onClick = () => {
     router.push('/');
   };
+
+  const displayFirstName = () => {
+    return getFirstName()?.trim().length === 0
+      ? 'Client'
+      : getFirstName();
+  }
 </script>
 
 <template>
-  <Card :first-name="getFirstName()">
+  <Card :first-name="displayFirstName()">
 
   </Card>
 </template>
