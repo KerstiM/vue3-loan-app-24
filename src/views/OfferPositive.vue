@@ -1,6 +1,5 @@
 <script setup lang="ts">
-  import Info from '../components/Info.vue';
-  import ListItem from '../components/ListItem.vue';
+  import { Button, Info, ListItem} from '@/components';
   import { useRouter } from 'vue-router';
   import { useGrid } from 'vue-screen';
   import { gridBreakpoints } from '@/utils/constants';
