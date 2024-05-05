@@ -28,10 +28,10 @@
 </template>
 
 <style lang="scss">
-  @import '@/assets/main.scss';
+  @import '@/scss/main.scss';
 
   body {
-    background-color: $lightGray;
+    background-color: $gray-20;
   }
 
   .list-item {

@@ -1,0 +1,32 @@
+// Border radius variables
+$border-radiuses: (
+  '4': 4px,
+  '8': 8px,
+  '24': 24px,
+  '30': 30px,
+  '100': 100px,
+  '200': 200px,
+);
+
+$border-radius-4: map-get($border-radiuses, '4');
+$border-radius-8: map-get($border-radiuses, '8');
+$border-radius-20: map-get($border-radiuses, '20');
+$border-radius-24: map-get($border-radiuses, '24');
+$border-radius-30: map-get($border-radiuses, '30');
+$border-radius-100: map-get($border-radiuses, '100');
+$border-radius-200: map-get($border-radiuses, '200');
+
+// Grid breakpoints
+$grid-breakpoints: (
+  'xs': 0,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px
+);
+
+$breakpoint-xs: map-get($grid-breakpoints, 'xs');
+$breakpoint-sm: map-get($grid-breakpoints, 'sm');
+$breakpoint-md: map-get($grid-breakpoints, 'md');
+$breakpoint-lg: map-get($grid-breakpoints, 'lg');
+$breakpoint-xl: map-get($grid-breakpoints, 'xl');

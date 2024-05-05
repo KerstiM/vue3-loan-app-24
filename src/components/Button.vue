@@ -45,7 +45,7 @@
 </template>
 
 <style lang="scss">
-  @import '@/assets/main.scss';
+  @import '@/scss/main.scss';
 
   $button__color--disabled: lighten(gray, 30%);
   $buttonHeightWidth: 24px;
@@ -93,7 +93,7 @@
 
   .button {
     border: none;
-    border-radius: 24px;
+    border-radius: $border-radius-24;
     padding: 12px 24px;
     font-family: Inter;
     color: $purple;
@@ -107,8 +107,8 @@
     }
   }
 
-  @include buttonColors('light', $lightYellow);
-  @include buttonColors('purple', $lightPurple);
+  @include buttonColors('light', $yellow-20);
+  @include buttonColors('purple', $purple-60);
 
   @include buttonDisplays('narrow');
   @include buttonDisplays('block');

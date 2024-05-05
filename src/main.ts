@@ -1,14 +1,18 @@
-import './assets/main.scss'
+// Styles, except helpers
+import './scss/main.scss';
+
+// All public components
+export * from './components';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+
 import Button from "primevue/button"
 import Dropdown from 'primevue/dropdown';
 import InputNumber from 'primevue/inputnumber';
 import InputText from 'primevue/inputtext';
 import FloatLabel from 'primevue/floatlabel';
 import Slider from 'primevue/slider';
-
 
 import App from './App.vue'
 import router from './router'
@@ -29,3 +33,7 @@ app.component('Slider', Slider);
 
 
 app.mount('#app')
+
+// Include helpers after components so the style loading order
+// would allow them to override SFC styles
+import './scss/helpers.scss';

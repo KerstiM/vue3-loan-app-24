@@ -65,10 +65,10 @@
 </template>
 
 <style lang="scss">
-  @import '@/assets/main.scss';
+  @import '@/scss/main.scss';
 
   body {
-    background-color: $lightGray;
+    background-color: $gray-20;
   }
 
   .card-negative {
@@ -112,7 +112,7 @@
 
     @media (min-width: $breakpoint-md) {
       padding: 80px 204px;
-      border-radius: 20px;
+      border-radius: $border-radius-20;
       height: 100%;
       display: flex;
       flex-direction: column;

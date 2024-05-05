@@ -83,7 +83,7 @@
 </template>
 
 <style lang="scss">
-  @import '@/assets/main.scss';
+  @import '@/scss/main.scss';
 
   .info {
     &__small-label,

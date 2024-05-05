@@ -38,7 +38,7 @@
 </template>
 
 <style scoped lang="scss">
-  @import '@/assets/main.scss';
+  @import '@/scss/main.scss';
 
   .product {
     display: grid;

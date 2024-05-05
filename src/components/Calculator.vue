@@ -91,7 +91,7 @@
 </template>
 
 <style lang="scss">
-  @import '@/assets/main.scss';
+  @import '@/scss/main.scss';
 
   .calculator {
     display: flex;
@@ -109,11 +109,11 @@
 
     &__field--slider {
       position: relative;
-      background: $purple-10;
+      background: $purple-40;
 
       .p-slider-handle {
-        background: $lightPurple;
-        border-radius: 100px;
+        background: $purple-60;
+        border-radius: $border-radius-100;
         border: none;
         width: 52px;
         height: 36px;
@@ -136,7 +136,7 @@
       .p-slider-range {
         background: $purple;
         height: 4px;
-        border-radius: 4px;
+        border-radius: $border-radius-4;
       }
     }
     &__field--slider:after {
@@ -147,7 +147,7 @@
       top: 0px;
       left: 0px;
       right: -40px;
-      border-radius: 100px;
+      border-radius: $border-radius-100;
       border: none;
     }
 
@@ -262,7 +262,7 @@
         top: 0px;
         left: 0px;
         right: -40px;
-        border-radius: 100px;
+        border-radius: $border-radius-100;
         border: none;
       }
 

@@ -77,10 +77,10 @@
 </template>
 
 <style lang="scss">
-  @import '@/assets/main.scss';
+  @import '@/scss/main.scss';
 
   body {
-    background-color: $lightGray;
+    background-color: $gray-20;
   }
 
   .card-positive {
@@ -88,7 +88,7 @@
     grid-template-columns: 1fr;
     flex-direction: column;
     background: $white;
-    border-radius: 20px;
+    border-radius: $border-radius-20;
     max-width: 1200px;
     text-align: center;
     margin: 0 auto;
@@ -120,12 +120,12 @@
       display: grid;
       flex-direction: row;
       grid-template-columns: 1fr 1fr;
-      border-radius: 20px;
+      border-radius: $border-radius-20;
 
       &__left-wrapper {
         padding: 80px 40px;
-        background: $lightYellow;
-        border-radius: 20px 0 0 20px;
+        background: $yellow-20;
+        border-radius: $border-radius-20 0 0 $border-radius-20;
       }
 
       &__image {

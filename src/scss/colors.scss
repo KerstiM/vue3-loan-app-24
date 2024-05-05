@@ -1,0 +1,31 @@
+// Colors
+$purple: #21093A;
+$purple-80: #60378B;
+$purple-60: #AA93FF;
+$purple-40: #e1d2ff;
+$purple-20: #E3D2FF;
+
+$gray: #606060;
+$gray-20: #FBFBF9;
+
+$yellow: #D9D4A7;
+$yellow-20: #F0F0EA;
+
+$red: #EB5757;
+
+$white: #fff;
+
+// Color map to generate utility classes (only uses the base palette)
+$colors: (
+  'purple': $purple,
+  'purple-80': $purple-80,
+  'purple-60': $purple-60,
+  'purple-40': $purple-40,
+  'purple-20': $purple-20,
+  'gray': $gray,
+  'gray-20': $gray-20,
+  'yellow': $yellow,
+  'yellow-20': $yellow-20,
+  'red': $red,
+  'white': $white,
+);
