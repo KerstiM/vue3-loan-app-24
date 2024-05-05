@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { useProductStore } from '@/stores/productStore';
   import { useRouter } from 'vue-router';
-  import { Button, ErrorMessage } from '@/components';
+  import { IbButton, IbErrorMessage } from '@/components';
   import { useFormValidation } from '@/composables/formValidation';
 
   const productStore = useProductStore();
@@ -48,22 +48,22 @@
           <p class="modal__title">
             Personal details
           </p>
-          <Button
+          <IbButton
             icon="pi pi-times"
             display="close"
             @click="closeModal"
-          ></Button>
+          ></IbButton>
         </div>
 
         <FloatLabel>
           <InputText
+            v-model="form.firstName"
             id="first_name"
             class="w-100"
-            v-model="form.firstName"
             @blur="validateOnBlur('firstName')"
           />
           <label for="first_name">First name</label>
-          <ErrorMessage
+          <IbErrorMessage
             :hasError="v$.firstName.$error"
             :errorMessage="v$.firstName.$errors[0]?.$message"
           />
@@ -71,13 +71,13 @@
 
         <FloatLabel>
           <InputText
+            v-model="form.lastName"
             id="last_name"
             class="w-100"
-            v-model="form.lastName"
             @blur="validateOnBlur('lastName')"
           />
           <label for="last_name">Last name</label>
-          <ErrorMessage
+          <IbErrorMessage
             :hasError="v$.lastName.$error"
             :errorMessage="v$.lastName.$errors[0]?.$message"
           />
@@ -85,13 +85,13 @@
 
         <FloatLabel>
           <InputText
+            v-model="form.mobileNumber"
             id="mobile_number"
             class="w-100"
-            v-model="form.mobileNumber"
             @blur="validateOnBlur('mobileNumber')"
           />
           <label for="mobile_number">Mobile number</label>
-          <ErrorMessage
+          <IbErrorMessage
             :hasError="v$.mobileNumber.$error"
             :errorMessage="v$.mobileNumber.$errors[0]?.$message"
           />
@@ -99,13 +99,13 @@
 
         <FloatLabel>
           <InputText
+            v-model="form.email"
             id="email"
             class="w-100"
-            v-model="form.email"
             @blur="validateOnBlur('email')"
           />
           <label for="email">E-mail</label>
-          <ErrorMessage
+          <IbErrorMessage
             :hasError="v$.email.$error"
             :errorMessage="v$.email.$errors[0]?.$message"
           />
@@ -113,23 +113,23 @@
 
         <FloatLabel>
           <InputNumber
+            v-model="form.monthlyIncome"
             id="monthlyIncome"
             class="w-100"
-            v-model="form.monthlyIncome"
             @blur="validateOnBlur('monthlyIncome')"
           />
           <label for="monthlyIncome">Monthly income</label>
-          <ErrorMessage
+          <IbErrorMessage
             :hasError="v$.monthlyIncome.$error"
             :errorMessage="v$.monthlyIncome.$errors[0]?.$message"
           />
         </FloatLabel>
       
-        <Button
+        <IbButton
           label="Submit"
           @click.stop="onSubmit"
           class="w-100"
-        ></Button>
+        ></IbButton>
 
       </div>
     </div>

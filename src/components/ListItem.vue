@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Separator } from '@/components';
+  import { IbSeparator } from '@/components';
 
   withDefaults(defineProps<{
     label: string;
@@ -13,12 +13,12 @@
 </script>
 
 <template>
-  <Separator v-if="!noTopBorder"></Separator>
+  <IbSeparator v-if="!noTopBorder"></IbSeparator>
   <div class="list-item__item">
     <span>{{ label }}</span>
     <span>{{ value }}</span>
   </div>
-  <Separator v-if="!noBottomBorder"></Separator>
+  <IbSeparator v-if="!noBottomBorder"></IbSeparator>
 </template>
 
 <style lang="scss">

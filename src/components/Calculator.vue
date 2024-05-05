@@ -27,9 +27,9 @@
         <FloatLabel>
           <InputNumber
             v-model="form.loanAmount"
+            id="amount"
             :min="minAmount"
             :max="maxAmount"
-            id="amount"
             class="w-100"
           />
           <label for="amount">Amount</label>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import { Button, Calculator, Info, Modal } from '@/components';
+import { IbButton, IbCalculator, IbInfo, IbModal } from '@/components';
 
 const modalVisible = ref(false);
 
@@ -19,7 +19,7 @@ const closeModal = () => {
     id="calculator"
   >
     <div class="calculator-section__left-wrapper">
-      <Info
+      <IbInfo
         largeLabelCursive="monthly payment"
         largeLabel="Calculate your  "
         :cursiveFirst="false"
@@ -27,17 +27,17 @@ const closeModal = () => {
         <p class="calculator-section__sub-info">
           Estimate your monthly payments based on the chosen loan amount and time period.
         </p>
-      </Info>
+      </IbInfo>
     </div>
     <div class="calculator-section__right-wrapper">
 
-      <Calculator></Calculator>
+      <IbCalculator></IbCalculator>
 
       <div class="calculator-section__info-wrapper">
-        <Button
+        <IbButton
           label="Apply now"
           @click="openModal"
-        ></Button>
+        ></IbButton>
         <p class="calculator-section__disclaimer">
           The calculation is approximate and may differ from the conditions offered to you.
           Please submit a loan application to receive a personal offer.
@@ -45,10 +45,10 @@ const closeModal = () => {
         </p>
       </div>
     </div>
-    <Modal
+    <IbModal
       :visible="modalVisible"
       @close="closeModal">
-    </Modal>
+    </IbModal>
   </div>
 </template>
 

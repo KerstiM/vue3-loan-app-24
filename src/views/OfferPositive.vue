@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Button, Info, ListItem} from '@/components';
+  import { IbButton, IbInfo, IbListItem} from '@/components';
   import { useRouter } from 'vue-router';
   import { useGrid } from 'vue-screen';
   import { gridBreakpoints } from '@/utils/constants';
@@ -37,7 +37,7 @@
         class="card-positive__image"
       >
     </div>
-    <Info
+    <IbInfo
       class="card-positive__right-wrapper"
       :largeLabelCursive="{
         text: 'Good ',
@@ -49,28 +49,28 @@
       }"
     >
       <p class="m-b-40">Your loan has been approved</p>
-      <ListItem
+      <IbListItem
         label="Loan amount"
         :value="`${getLoanAmount()} €`"
         no-bottom-border
       />
-      <ListItem
+      <IbListItem
         label="Loan period"
         :value="`${getLoanPeriod()} months`"
         no-bottom-border
       />
-      <ListItem
+      <IbListItem
         label="Monthly payment"
         :value="`${calculateMonthlyPayment} €`"
       />
       <template #button>
-        <Button
+        <IbButton
           class="m-t-40"
           label="Back to home page"
           @click="onClick"
-        ></Button>
+        ></IbButton>
       </template>
-    </Info>
+    </IbInfo>
   </div>
 </template>
 

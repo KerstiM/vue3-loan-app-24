@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Button, Info, Separator } from '@/components';
+  import { IbButton, IbInfo, IbSeparator } from '@/components';
   import { useProductStore } from '@/stores/productStore';
 
   const productStore = useProductStore();
@@ -33,7 +33,7 @@
 
 <template>
   <div class="card-negative">
-    <Info
+    <IbInfo
       :largeLabelCursive="{
         text: 'Dear ',
         small: true
@@ -50,15 +50,15 @@
       <p class="card-negative__info">
         In addition to your income and expenses, a number of other factors play a role in loan decisions.
       </p>
-      <Separator></Separator>
+      <IbSeparator></IbSeparator>
       <template #button>
-        <Button
+        <IbButton
           class="w-100 m-t-40"
           label="Exit"
           @click="onClick"
-        ></Button>
+        ></IbButton>
       </template>
-    </Info>
+    </IbInfo>
   </div>
 </template>
 

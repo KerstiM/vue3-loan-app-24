@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import { CalculatorSection, Product } from '@/components'
+  import { IbCalculatorSection, IbProduct } from '@/components'
 </script>
 
 <template>
   <main>
-    <Product/>
-    <CalculatorSection/>
+    <IbProduct/>
+    <IbCalculatorSection/>
   </main>
 </template>

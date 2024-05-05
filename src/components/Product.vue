@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Info, Button } from '@/components';
+  import { IbInfo, IbButton } from '@/components';
 
   const scrollToCalculator = () => {
     const calculatorSection = document.getElementById('calculator');
@@ -12,7 +12,7 @@
 <template>
   <div class="product">
     <div class="product__info-wrapper">
-      <Info
+      <IbInfo
         smallLabel="Mini loan"
         largeLabelCursive="Take charge "
         largeLabel="of unexpected costs"
@@ -23,13 +23,13 @@
           Finance unforeseen expenses with Inbank. A quick and easy application process with an instant credit decision.
         </p>
         <template #button>
-          <Button
+          <IbButton
             label="Apply now"
             color="light"
             @click="scrollToCalculator"
-          ></Button>
+          ></IbButton>
         </template>
-      </Info>
+      </IbInfo>
     </div>
     <div class="product__image-wrapper">
       <img
