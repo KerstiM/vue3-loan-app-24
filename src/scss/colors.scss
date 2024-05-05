@@ -15,6 +15,7 @@ $yellow-20: #F0F0EA;
 $red: #EB5757;
 
 $white: #fff;
+$black: #000000;
 
 // Color map to generate utility classes (only uses the base palette)
 $colors: (
@@ -29,4 +30,5 @@ $colors: (
   'yellow-20': $yellow-20,
   'red': $red,
   'white': $white,
+  'black': $black,
 );
