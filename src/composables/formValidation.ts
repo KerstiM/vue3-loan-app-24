@@ -31,9 +31,16 @@ export function useFormValidation(form: Form) {
     }
   })
 
-  const v$ = useVuelidate(rules, form);
+  const validationState = useVuelidate(rules, form);
+
+  const validateOnBlur = async (fieldName?: string) => {
+    if (fieldName) {
+      validationState.value[fieldName].$touch();
+    }
+  };
 
   return {
-    v$,
+    validateOnBlur,
+    v$: validationState.value,
   };
 }
