@@ -32,12 +32,16 @@
       </Info>
     </div>
     <div class="product__image-wrapper">
-      <img src="../assets/product-mini-loan.jpg" alt="product-mini-loan" class="product__image">
+      <img
+        src="../assets/product-mini-loan.jpg"
+        alt="product-mini-loan"
+        class="product__image"
+      >
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
   @import '@/scss/main.scss';
 
   .product {

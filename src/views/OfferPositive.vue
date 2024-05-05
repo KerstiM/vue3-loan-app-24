@@ -48,9 +48,7 @@
         small: true
       }"
     >
-      <p class="card-positive__sub-info">
-        Your loan has been approved
-      </p>
+      <p class="m-b-40">Your loan has been approved</p>
       <ListItem
         label="Loan amount"
         :value="`${getLoanAmount()} €`"
@@ -67,7 +65,7 @@
       />
       <template #button>
         <Button
-          class="card-positive__button"
+          class="m-t-40"
           label="Back to home page"
           @click="onClick"
         ></Button>
@@ -109,12 +107,6 @@
       object-fit: cover;
     }
 
-    &__button {
-      margin-top: 40px;
-      padding: 12px 24px;
-      width: 100%;
-    }
-
     @media (min-width: $breakpoint-md) {
       position: relative;
       display: grid;
@@ -130,7 +122,6 @@
 
       &__image {
         margin-right: -150px;
-        width: 100%;
         height: auto;
       }
 
@@ -143,8 +134,6 @@
 
     @media (min-width: $breakpoint-lg) {
       &__right-wrapper {
-        display: flex;
-        flex-direction: column;
         padding: 80px 100px;
       }
     }

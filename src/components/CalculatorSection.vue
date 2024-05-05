@@ -30,7 +30,9 @@ const closeModal = () => {
       </Info>
     </div>
     <div class="calculator-section__right-wrapper">
+
       <Calculator></Calculator>
+
       <div class="calculator-section__info-wrapper">
         <Button
           label="Apply now"
@@ -65,7 +67,10 @@ const closeModal = () => {
       text-align: start;
     }
 
-    &__sub-info,
+    &__sub-info {
+      opacity: 90%;
+    }
+
     &__disclaimer {
       opacity: 60%;
     }
@@ -104,7 +109,7 @@ const closeModal = () => {
         bottom: 10%;
         right: 50%;
         width: 1px;
-        background-color: rgba(black, 0.1);
+        background-color: rgba($black, 0.1);
       }
 
       &__right-wrapper {

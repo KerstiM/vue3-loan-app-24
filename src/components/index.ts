@@ -7,3 +7,4 @@ export { default as ListItem } from './ListItem.vue';
 export { default as Logo } from './Logo.vue';
 export { default as Modal } from './Modal.vue';
 export { default as Product } from './Product.vue';
+export { default as Separator } from './Separator.vue';

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Button, Info } from '@/components';
+  import { Button, Info, Separator } from '@/components';
   import { useProductStore } from '@/stores/productStore';
 
   const productStore = useProductStore();
@@ -43,19 +43,17 @@
         small: true
       }"
     >
-      <div class="card-negative__content">
-        <p class="card-negative__small-info">
-          Unfortunately, your loan was denied.
-        </p>
-        <span class="card-negative__separator"></span>
-        <p class="card-negative__sub-info">
-          In addition to your income and expenses, a number of other factors play a role in loan decisions.
-        </p>
-        <span class="card-negative__separator"></span>
-      </div>
+      <p class="card-negative__sub-title">
+        Unfortunately, your loan was denied.
+      </p>
+      <Separator class="m-t-40"></Separator>
+      <p class="card-negative__info">
+        In addition to your income and expenses, a number of other factors play a role in loan decisions.
+      </p>
+      <Separator></Separator>
       <template #button>
         <Button
-          class="card-negative__button"
+          class="w-100 m-t-40"
           label="Exit"
           @click="onClick"
         ></Button>
@@ -79,44 +77,22 @@
     padding: 40px;
     text-align: center;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     width: 100vw;
 
-    &__sub-info {
+    &__sub-title {
+      margin: 0
+    }
+
+    &__info {
       font-size: 14px;
       line-height: 20px;
       opacity: 75%;
     }
 
-    &__small-info {
-      margin: 0
-    }
-
-    &__separator {
-      display: block;
-      width: 100%;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-    }
-
-    &__separator:first-of-type {
-      margin-top: 40px;
-    }
-
-    &__button {
-      margin-top: 40px;
-      padding: 12px 24px;
-      width: 100%;
-    }
-
     @media (min-width: $breakpoint-md) {
-      padding: 80px 204px;
+      padding: 80px 200px;
       border-radius: $border-radius-20;
       height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
   }
 </style>

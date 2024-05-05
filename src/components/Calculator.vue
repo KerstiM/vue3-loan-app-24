@@ -21,7 +21,8 @@
     class="calculator"
     id="calculator"
   >
-    <div class="calculator__fields-wrapper">
+    <div class="calculator__fields-container">
+
       <div class="calculator__cell--1">
         <FloatLabel>
           <InputNumber
@@ -29,11 +30,12 @@
             :min="minAmount"
             :max="maxAmount"
             id="amount"
-            class="calculator__field--input"
+            class="w-100"
           />
           <label for="amount">Amount</label>
         </FloatLabel>
       </div>
+
       <div class="calculator__cell--2">
         <div class="calculator__slider-wrapper">
           <Slider
@@ -41,7 +43,6 @@
             :min="minAmount"
             :max="maxAmount"
             :step="100"
-            ariaLabel="Period"
             class="calculator__field--slider"
           />
         </div>
@@ -50,6 +51,7 @@
           <span>{{ maxAmount }} €</span>
         </div>
       </div>
+
       <div class="calculator__cell--3">
         <FloatLabel class="w-full">
           <Dropdown
@@ -57,12 +59,13 @@
             id="period"
             :options="monthlyPaymentOptions"
             optionLabel="periodLabel"
-            class="calculator__field--input"
+            class="w-100"
             @change="updateDropdownValueToClosestSliderValue"
           />
           <label for="period">Period</label>
         </FloatLabel>
       </div>
+
       <div class="calculator__cell--4">
         <div class="calculator__slider-wrapper">
           <Slider
@@ -99,12 +102,16 @@
     justify-content: baseline;
     width: 100%;
 
-    &__fields-wrapper {
+    &__fields-container {
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: repeat(4, auto);
       gap: 10px;
       width: 100%;
+    }
+
+    &__slider-wrapper {
+      padding: 16px 40px 10px 10px;
     }
 
     &__field--slider {
@@ -131,14 +138,12 @@
 
       .p-slider-range {
         margin-left: -10px;
-      }
-
-      .p-slider-range {
         background: $purple;
         height: 4px;
         border-radius: $border-radius-4;
       }
     }
+
     &__field--slider:after {
       content: '';
       background: rgba($purple, 0.1);
@@ -162,12 +167,8 @@
       opacity: 60%;
     }
 
-    &__field--input {
+    .p-inputnumber-input {
       width: 100%;
-
-      .p-inputnumber-input {
-        width: 100%;
-      }
     }
 
     &__label {
@@ -206,12 +207,8 @@
       }
     }
 
-    &__slider-wrapper {
-      padding: 16px 40px 10px 10px;
-    }
-
     @media (min-width: $breakpoint-lg) {
-      &__fields-wrapper {
+      &__fields-container {
         display: grid;
         grid-template-columns: 3fr 1fr;
         grid-template-rows: auto auto;
@@ -219,17 +216,7 @@
       }
 
       &__label {
-        &--small,
-        &--large {
-          font-weight: 400;
-          text-align: center;
-          margin-top: 0;
-        }
-
         &--small {
-          font-family: Inter;
-          font-size: 16px;
-          line-height: 24px;
           margin-top: 40px;
         }
 
@@ -238,36 +225,6 @@
           line-height: 72px;
           margin-bottom: 20px;
         }
-      }
-
-      &__field--slider {
-        .p-slider-handle:after {
-          content: url('@/assets/drag-icons.svg');
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-
-        .p-slider-range {
-          margin-left: -10px;
-        }
-      }
-
-      &__field--slider:after {
-        content: '';
-        background: rgba($purple, 0.1);
-        height: 4px;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        right: -40px;
-        border-radius: $border-radius-100;
-        border: none;
-      }
-
-      &__slider-wrapper {
-        padding: 16px 40px 10px 10px;
       }
 
       &__cell {
