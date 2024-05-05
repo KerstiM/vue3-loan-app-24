@@ -31,7 +31,8 @@
 }
 
 // Generate utility classes for paddings and margins
-$spaceamounts: (0, 1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 80, 100);
+$opacityamounts: (0, 1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 80, 100);
+$spaceamounts: (0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 56, 60, 80, 100, 200);
 $sides: (
   a: all,
   x: sides-x,
@@ -76,6 +77,21 @@ $sides: (
   }
 }
 
+// Opacity
+@each $space in $opacityamounts {
+  @if $space != 0 {
+    $unit: percentage($space / 100);
+
+    .opacity-#{$space} {
+      opacity: $unit !important;
+    }
+  } @else {
+    .opacity-#{$space} {
+      opacity: $space !important;
+    }
+  }
+}
+
 // Margin-specific utils
 .m-a { margin: auto !important; }
 .m-l-a { margin-left: auto !important; }
@@ -111,13 +127,29 @@ $sides: (
   }
 }
 
-// border-radius
+// Create responsive helpers for all breakpoints
+@each $breakpointName, $breakpointValue in $grid-breakpoints {
+  $breakpointNameDashed: if($breakpointName == xs, '', -#{$breakpointName});
+
+  @if $breakpointName == xs {
+    @include marginPaddingHelpers($breakpointNameDashed);
+    @include negativeMarginHelpers($breakpointNameDashed);
+  } @else {
+    @media (min-width: #{$breakpointValue}) {
+      @include marginPaddingHelpers($breakpointNameDashed);
+      @include negativeMarginHelpers($breakpointNameDashed);
+    }
+  }
+}
+
+// Border-radius
 @each $radiusName, $radiusVal in $border-radiuses {
   .border-radius-#{$radiusName} {
     border-radius: $radiusVal !important;
   }
 }
 
+// Background-color
 @each $cName, $cVal in $colors {
   .bg-#{$cName} {
     background-color: $cVal !important;
