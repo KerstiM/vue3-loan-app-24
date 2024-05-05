@@ -1,16 +1,23 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
-import { IbButton, IbCalculator, IbInfo, IbModal } from '@/components';
+  import { computed, ref, watch } from 'vue';
+  import { IbButton, IbCalculator, IbInfo, IbModal } from '@/components';
 
-const modalVisible = ref(false);
+  const modalVisible = ref(false);
 
-const openModal = () => {
-  modalVisible.value = true;
-};
+  const openModal = () => {
+    modalVisible.value = true;
+  };
 
-const closeModal = () => {
-  modalVisible.value = false;
-};
+  const closeModal = () => {
+    modalVisible.value = false;
+  };
+
+  const applyButton = 'Apply now';
+  const largeLabel = 'Calculate your  ';
+  const largeLabelCursive = 'monthly payment';
+  const subInfo = 'Estimate your monthly payments based on the chosen loan amount and time period.';
+  const disclaimer = 'The calculation is approximate and may differ from the conditions offered to you. Please submit a loan application to receive a personal offer. Financial services are provided by AS Inbank Finance.';
+
 </script>
 
 <template>
@@ -20,31 +27,29 @@ const closeModal = () => {
   >
     <div class="calculator-section__left-wrapper">
       <IbInfo
-        largeLabelCursive="monthly payment"
-        largeLabel="Calculate your  "
+        :largeLabelCursive="largeLabelCursive"
+        :largeLabel="largeLabel"
         :cursiveFirst="false"
       >
         <p class="calculator-section__sub-info">
-          Estimate your monthly payments based on the chosen loan amount and time period.
+          {{ subInfo }}
         </p>
       </IbInfo>
     </div>
+
     <div class="calculator-section__right-wrapper">
-
       <IbCalculator></IbCalculator>
-
       <div class="calculator-section__info-wrapper">
         <IbButton
-          label="Apply now"
+          :label="applyButton"
           @click="openModal"
         ></IbButton>
         <p class="calculator-section__disclaimer">
-          The calculation is approximate and may differ from the conditions offered to you.
-          Please submit a loan application to receive a personal offer.
-          Financial services are provided by AS Inbank Finance.
+          {{ disclaimer }}
         </p>
       </div>
     </div>
+
     <IbModal
       :visible="modalVisible"
       @close="closeModal">

@@ -19,6 +19,16 @@
   const onClick = () => {
     router.push('/');
   };
+
+  const titleCursive =  'Good ';
+  const title =  'news!';
+  const subTitle = 'Your loan has been approved';
+  const amount = 'Loan amount';
+  const period = 'Loan period';
+  const payment = 'Monthly payment';
+  const periodUnits = 'months';
+  const currencyUnits = '€';
+  const button = 'Back to home page';
 </script>
 
 <template>
@@ -40,33 +50,33 @@
     <IbInfo
       class="card-positive__right-wrapper"
       :largeLabelCursive="{
-        text: 'Good ',
+        text: titleCursive,
         small: true
       }"
       :largeLabel="{
-        text: 'news!',
+        text: title,
         small: true
       }"
     >
-      <p class="m-b-40">Your loan has been approved</p>
+      <p class="m-b-40">{{ subTitle }}</p>
       <IbListItem
-        label="Loan amount"
-        :value="`${getLoanAmount()} €`"
+        :label="amount"
+        :value="`${getLoanAmount()} ${currencyUnits}`"
         no-bottom-border
       />
       <IbListItem
-        label="Loan period"
-        :value="`${getLoanPeriod()} months`"
+        :label="period"
+        :value="`${getLoanPeriod()} ${periodUnits}`"
         no-bottom-border
       />
       <IbListItem
-        label="Monthly payment"
-        :value="`${calculateMonthlyPayment} €`"
+        :label="payment"
+        :value="`${calculateMonthlyPayment} ${currencyUnits}`"
       />
       <template #button>
         <IbButton
           class="m-t-40"
-          label="Back to home page"
+          :label="button"
           @click="onClick"
         ></IbButton>
       </template>

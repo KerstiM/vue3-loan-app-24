@@ -37,6 +37,14 @@
   const closeModal = () => {
     emit('close');
   };
+
+  const personalDetails = 'Personal details';
+  const firstNameLabel = 'First name';
+  const lastNameLabel = 'Last name';
+  const mobileNumberLabel = 'Mobile number';
+  const emailLabel = 'E-mail';
+  const monthlyIncomeLabel = 'Monthly income';
+  const submitButton = 'Submit';
 </script>
 
 <template>
@@ -46,7 +54,7 @@
 
         <div class="modal__heading">
           <p class="modal__title">
-            Personal details
+            {{ personalDetails }}
           </p>
           <IbButton
             icon="pi pi-times"
@@ -63,7 +71,7 @@
             :class="{ 'error': v$.firstName.$error }"
             @blur="validateOnBlur('firstName')"
           />
-          <label for="first_name">First name</label>
+          <label for="first_name">{{ firstNameLabel }}</label>
           <IbErrorMessage
             :hasError="v$.firstName.$error"
             :errorMessage="v$.firstName.$errors[0]?.$message"
@@ -78,7 +86,7 @@
             :class="{ 'error': v$.lastName.$error }"
             @blur="validateOnBlur('lastName')"
           />
-          <label for="last_name">Last name</label>
+          <label for="last_name">{{ lastNameLabel }}</label>
           <IbErrorMessage
             :hasError="v$.lastName.$error"
             :errorMessage="v$.lastName.$errors[0]?.$message"
@@ -93,7 +101,7 @@
             :class="{ 'error': v$.mobileNumber.$error }"
             @blur="validateOnBlur('mobileNumber')"
           />
-          <label for="mobile_number">Mobile number</label>
+          <label for="mobile_number">{{ mobileNumberLabel }}</label>
           <IbErrorMessage
             :hasError="v$.mobileNumber.$error"
             :errorMessage="v$.mobileNumber.$errors[0]?.$message"
@@ -108,7 +116,7 @@
             :class="{ 'error': v$.email.$error }"
             @blur="validateOnBlur('email')"
           />
-          <label for="email">E-mail</label>
+          <label for="email">{{ emailLabel }}</label>
           <IbErrorMessage
             :hasError="v$.email.$error"
             :errorMessage="v$.email.$errors[0]?.$message"
@@ -123,7 +131,7 @@
             :class="{ 'error': v$.monthlyIncome.$error }"
             @blur="validateOnBlur('monthlyIncome')"
           />
-          <label for="monthlyIncome">Monthly income</label>
+          <label for="monthlyIncome">{{ monthlyIncomeLabel }}</label>
           <IbErrorMessage
             :hasError="v$.monthlyIncome.$error"
             :errorMessage="v$.monthlyIncome.$errors[0]?.$message"
@@ -131,7 +139,7 @@
         </FloatLabel>
 
         <IbButton
-          label="Submit"
+          :label="submitButton"
           class="w-100"
           @click.stop="onSubmit"
         ></IbButton>

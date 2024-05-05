@@ -29,13 +29,17 @@
 
     return capitalizedWords?.join(" ");
   }
+  const title = 'Dear ';
+  const subTitle = 'Unfortunately, your loan was denied.';
+  const info = 'In addition to your income and expenses, a number of other factors play a role in loan decisions.';
+  const exitButton = 'Exit';
 </script>
 
 <template>
   <div class="card-negative">
     <IbInfo
       :largeLabelCursive="{
-        text: 'Dear ',
+        text: title,
         small: true
       }"
       :largeLabel="{
@@ -44,17 +48,17 @@
       }"
     >
       <p class="card-negative__sub-title">
-        Unfortunately, your loan was denied.
+        {{ subTitle }}
       </p>
       <IbSeparator class="m-t-40"></IbSeparator>
       <p class="card-negative__info">
-        In addition to your income and expenses, a number of other factors play a role in loan decisions.
+        {{ info }}
       </p>
       <IbSeparator></IbSeparator>
       <template #button>
         <IbButton
           class="w-100 m-t-40"
-          label="Exit"
+          :label="exitButton"
           @click="onClick"
         ></IbButton>
       </template>

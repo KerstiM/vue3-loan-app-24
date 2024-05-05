@@ -9,7 +9,6 @@
     smallLabel: String,
     largeLabelCursive: [String, Object],
     largeLabel: [String, Object],
-    buttonText: String,
     link: {
       type: String,
       default: '#calculator',
@@ -45,36 +44,31 @@
     <p
       v-if="smallLabel"
       class="info__small-label"
-    >
-      {{ smallLabel }}
+    >{{ smallLabel }}
     </p>
 
     <div v-if="cursiveFirst">
       <span
         class="info__large-label-cursive"
         :style="{ fontSize: computedLabelSize }"
-      >
-        {{ largeLabelCursiveText }}
+      >{{ largeLabelCursiveText }}
       </span>
       <span
         class="info__large-label"
         :style="{ fontSize: computedLabelSize }"
-      >
-        {{ largeLabelText }}
+      >{{ largeLabelText }}
       </span>
     </div>
     <div v-else>
       <span
         class="info__large-label"
         :style="{ fontSize: computedLabelSize }"
-      >
-        {{ largeLabelText }}
+      >{{ largeLabelText }}
       </span>
       <span
         class="info__large-label-cursive"
         :style="{ fontSize: computedLabelSize }"
-      >
-        {{ largeLabelCursiveText }}
+      >{{ largeLabelCursiveText }}
       </span>
     </div>
 

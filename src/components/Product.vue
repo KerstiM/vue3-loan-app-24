@@ -7,24 +7,29 @@
       calculatorSection.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
+  const smallLabel = 'Mini loan';
+  const labelCursive = 'Take charge ';
+  const label = 'of unexpected costs';
+  const subInfo = 'Finance unforeseen expenses with Inbank. A quick and easy application process with an instant credit decision.'
+  const button = 'Apply now'
 </script>
 
 <template>
   <div class="product">
     <div class="product__info-wrapper">
       <IbInfo
-        smallLabel="Mini loan"
-        largeLabelCursive="Take charge "
-        largeLabel="of unexpected costs"
-        buttonText="Apply now"
+        :smallLabel="smallLabel"
+        :largeLabelCursive="labelCursive"
+        :largeLabel="label"
         link="#calculator"
       >
         <p class="product__sub-info">
-          Finance unforeseen expenses with Inbank. A quick and easy application process with an instant credit decision.
+          {{ subInfo }}
         </p>
         <template #button>
           <IbButton
-            label="Apply now"
+            :label="button"
             color="light"
             @click="scrollToCalculator"
           ></IbButton>
