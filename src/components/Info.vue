@@ -77,6 +77,7 @@
         {{ largeLabelCursiveText }}
       </span>
     </div>
+
     <slot name="default"/>
     <slot name="button" />
   </div>

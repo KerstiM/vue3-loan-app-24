@@ -29,6 +29,7 @@
     return {
       [`button--${props.display}`]: props.display,
       [`button--${props.color}`]: props.color,
+      'button--disabled': props.disabled,
     };
   });
 </script>
@@ -40,7 +41,6 @@
     :label="label"
     :display="display"
     :background="color"
-    :disabled="disabled"
   ></Button>
 </template>
 
@@ -51,8 +51,8 @@
   $buttonHeightWidth: 24px;
 
   @mixin buttonColors($colorName, $color) {
-    $hoverColor: darken($color, 5%);
-    $focusColor: darken($color, 10%);
+    $hoverColor: lighten($color, 5%);
+    $focusColor: lighten($color, 10%);
 
     .button--#{$colorName} {
       background-color: $color;
@@ -66,11 +66,9 @@
       &:active {
         background-color: $focusColor;
       }
-
-      &[disabled],
-      .button--disabled {
-        background-color: $button__color--disabled;
-      }
+    }
+    .button--disabled {
+      background-color: $gray-40;
     }
   }
 

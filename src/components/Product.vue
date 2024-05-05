@@ -44,6 +44,8 @@
 <style lang="scss">
   @import '@/scss/main.scss';
 
+  $screenWidth: 1536px;
+
   .product {
     display: grid;
     grid-template-columns: 1fr;
@@ -53,8 +55,8 @@
 
     &__info-wrapper {
       background: $yellow;
-      border-radius: $borderRadius100;
-      padding: 64px 24px 64px 24px;
+      border-radius: $border-radius-100;
+      padding: 64px 24px;
       align-content: center;
       text-align: center;
       margin-top: 16px;
@@ -67,7 +69,7 @@
     }
 
     &__image {
-      border-radius: $borderRadius100;
+      border-radius: $border-radius-100;
       position: absolute;
       top: 0;
       left: 0;
@@ -87,7 +89,7 @@
 
       &__info-wrapper,
       &__image {
-        border-radius: $borderRadius200;
+        border-radius: $border-radius-200;
       }
 
       &__info-wrapper {

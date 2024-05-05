@@ -2,8 +2,8 @@
   import { Ref } from "vue";
 
   const props = defineProps<{
-    hasError: boolean;
-    errorMessage: string | Ref<string>;
+    hasError?: boolean;
+    errorMessage?: string | Ref<string>;
   }>();
 </script>
 
