@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { Separator } from '@/components';
 
   withDefaults(defineProps<{
     label: string;
@@ -9,22 +10,15 @@
     noTopBorder: false,
     noBottomBorder: false,
   });
-
 </script>
 
 <template>
-  <span
-    v-if="!noTopBorder"
-    class="list-item__separator">
-  </span>
+  <Separator v-if="!noTopBorder"></Separator>
   <div class="list-item__item">
     <span>{{ label }}</span>
     <span>{{ value }}</span>
   </div>
-  <span
-    v-if="!noBottomBorder"
-    class="list-item__separator">
-  </span>
+  <Separator v-if="!noBottomBorder"></Separator>
 </template>
 
 <style lang="scss">
@@ -38,7 +32,7 @@
     &__separator {
       display: block;
       width: 100%;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+      border-bottom: 1px solid rgba($black, 0.15);
     }
 
     &__item {
