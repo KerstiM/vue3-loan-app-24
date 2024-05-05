@@ -86,24 +86,23 @@
     grid-template-columns: 1fr;
     flex-direction: column;
     background: $white;
-    border-radius: $border-radius-20;
     max-width: 1200px;
     text-align: center;
     margin: 0 auto;
     position: relative;
     width: 100%;
-    height: auto;
+    height: 100vh;
     padding: 16px;
+    align-content: baseline;
+    border: 4px solid $white;
     
     &__left-wrapper {
       padding: 24px;
       width: 100%;
-      height: 100%;
     }
 
     &__image {
       width: 100%;
-      height: 100%;
       object-fit: cover;
     }
 
@@ -113,6 +112,8 @@
       flex-direction: row;
       grid-template-columns: 1fr 1fr;
       border-radius: $border-radius-20;
+      height: auto;
+      padding: 0;
 
       &__left-wrapper {
         padding: 80px 40px;
