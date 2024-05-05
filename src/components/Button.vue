@@ -93,7 +93,6 @@
     border: none;
     border-radius: $border-radius-24;
     padding: 12px 24px;
-    font-family: Inter;
     color: $purple;
     font-size: 16px;
     line-height: 24px;

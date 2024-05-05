@@ -54,12 +54,13 @@
             @click="closeModal"
           ></IbButton>
         </div>
-
+        
         <FloatLabel>
           <InputText
             v-model="form.firstName"
             id="first_name"
             class="w-100"
+            :class="{ 'error': v$.firstName.$error }"
             @blur="validateOnBlur('firstName')"
           />
           <label for="first_name">First name</label>
@@ -74,6 +75,7 @@
             v-model="form.lastName"
             id="last_name"
             class="w-100"
+            :class="{ 'error': v$.lastName.$error }"
             @blur="validateOnBlur('lastName')"
           />
           <label for="last_name">Last name</label>
@@ -88,6 +90,7 @@
             v-model="form.mobileNumber"
             id="mobile_number"
             class="w-100"
+            :class="{ 'error': v$.mobileNumber.$error }"
             @blur="validateOnBlur('mobileNumber')"
           />
           <label for="mobile_number">Mobile number</label>
@@ -102,6 +105,7 @@
             v-model="form.email"
             id="email"
             class="w-100"
+            :class="{ 'error': v$.email.$error }"
             @blur="validateOnBlur('email')"
           />
           <label for="email">E-mail</label>
@@ -114,8 +118,9 @@
         <FloatLabel>
           <InputNumber
             v-model="form.monthlyIncome"
-            id="monthlyIncome"
+            id="monthly_income"
             class="w-100"
+            :class="{ 'error': v$.monthlyIncome.$error }"
             @blur="validateOnBlur('monthlyIncome')"
           />
           <label for="monthlyIncome">Monthly income</label>
@@ -124,11 +129,11 @@
             :errorMessage="v$.monthlyIncome.$errors[0]?.$message"
           />
         </FloatLabel>
-      
+
         <IbButton
           label="Submit"
-          @click.stop="onSubmit"
           class="w-100"
+          @click.stop="onSubmit"
         ></IbButton>
 
       </div>
@@ -173,38 +178,8 @@
       padding-bottom: 12px;
     }
 
-    .p-inputtext {
-      border-radius: $border-radius-8;
-
-      &:focus {
-        border: 2px solid $purple-80;
-        border-radius: $border-radius-8;
-        box-shadow: none;
-      }
-
-      &:hover {
-        border: 1px solid $purple-80;
-        box-shadow: none;
-      }
-    }
-
     .p-float-label {
       margin: 20px 0;
-
-      label {
-        position: absolute;
-        top: 0.15rem;
-        background: $white;
-        padding: 0 5px;
-        left: 10px;
-        color: $purple-80;
-        font-weight: 300;
-        font-family: Inter;
-
-        &:focus {
-          color: $purple-80;
-        }
-      }
     }
 
     @media (min-width: $breakpoint-sm) {

@@ -76,9 +76,7 @@ const closeModal = () => {
     }
 
     &__disclaimer {
-      font-family: Inter;
       font-size: 12px;
-      font-weight: 400;
       line-height: 16px;
       text-align: left;
       margin-bottom: 0;

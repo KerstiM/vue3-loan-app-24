@@ -90,7 +90,6 @@
     &__small-label,
     &__large-label,
     &__large-label-cursive {
-      font-family: Inter;
       text-align: center;
     }
 

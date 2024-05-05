@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { useLoanCalculator } from '@/composables/loanCalculator'
+  import { useFormValidation } from '@/composables/formValidation';
 
   const {
     form,
@@ -13,6 +14,8 @@
     updateSliderValueToClosestDropdownValue,
     getMonthlyPayment,
   } = useLoanCalculator();
+
+  const { v$ } = useFormValidation(form);
 
 </script>
 
@@ -31,6 +34,7 @@
             :min="minAmount"
             :max="maxAmount"
             class="w-100"
+            :class="{ 'error': v$.loanAmount?.$error }"
           />
           <label for="amount">Amount</label>
         </FloatLabel>
@@ -60,6 +64,7 @@
             :options="monthlyPaymentOptions"
             optionLabel="periodLabel"
             class="w-100"
+            :class="{ 'error': v$.loanPeriod?.$error }"
             @change="updateDropdownValueToClosestSliderValue"
           />
           <label for="period">Period</label>
@@ -160,9 +165,7 @@
       display: flex;
       justify-content: space-between;
       margin-top: 12px;
-      font-family: Inter;
       font-size: 14px;
-      font-weight: 400;
       line-height: 20px;
       opacity: 60%;
     }
@@ -174,13 +177,11 @@
     &__label {
       &--small,
       &--large {
-        font-weight: 400;
         text-align: center;
         margin-top: 0;
       }
 
       &--small {
-        font-family: Inter;
         font-size: 16px;
         line-height: 24px;
       }

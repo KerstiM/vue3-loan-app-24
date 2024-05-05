@@ -46,7 +46,7 @@
       <p class="card-negative__sub-title">
         Unfortunately, your loan was denied.
       </p>
-      <Separator class="m-t-40"></Separator>
+      <IbSeparator class="m-t-40"></IbSeparator>
       <p class="card-negative__info">
         In addition to your income and expenses, a number of other factors play a role in loan decisions.
       </p>

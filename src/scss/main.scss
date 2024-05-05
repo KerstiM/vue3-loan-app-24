@@ -11,3 +11,121 @@ body {
   font-family: Inter;
   margin: 0;
 }
+
+// PrimeVue components related overrides
+
+.error {
+  border: 2px solid $red;
+
+  &.p-inputnumber {
+    border: 2px solid $red;
+
+    .p-inputtext {
+      border: none;
+    
+      &:focus {
+        border: none;
+      }
+    
+      &:hover {
+        border: none;
+      }
+    }
+  }
+}
+
+// InputText
+.p-inputtext {
+  border-radius: $border-radius-8;
+  transition: border-color 0.3s ease;
+
+  &.p-filled {
+    border: 1px solid $purple-80;
+  }
+
+  &.error + label {
+    color: $red;
+  }
+
+  &:hover {
+    border: 1px solid $purple-80;
+    box-shadow: none;
+  }
+
+  &:focus {
+    border: 2px solid $purple-80;
+    border-radius: $border-radius-8;
+    box-shadow: none;
+  }
+}
+
+// FloatLabel
+.p-float-label {
+  label {
+    position: absolute;
+    top: 0.15rem;
+    background: $white;
+    border-radius: $border-radius-8;
+    padding: 2px 8px;
+    left: 10px;
+    color: $purple-80;
+
+    &:focus {
+      color: $purple-80;
+    }
+  }
+}
+
+// Label
+label {
+  position: relative;
+  top: -60px;
+  background: $white;
+  border-radius: $border-radius-8;
+  padding: 2px 8px;
+  left: 10px;
+  color: $purple-80;
+  font-size: 12px;
+
+  &:focus {
+    color: $purple-80;
+  }
+}
+
+// Dropdown
+// InputNumber
+.p-dropdown,
+.p-inputnumber {
+  border-radius: $border-radius-8;
+  transition: border-color 0.3s ease;
+  border: 1px solid $gray-40;
+
+  .p-inputtext {
+    border: none;
+  
+    &:focus {
+      border: none;
+    }
+  
+    &:hover {
+      border: none;
+    }
+  }
+
+  &.p-inputwrapper-filled {
+    border-color: $purple-80;
+  }
+
+  &.error + label {
+    color: $red;
+  }
+
+  &:hover {
+    border: 1px solid $purple-80;
+    box-shadow: none;
+  }
+
+  &.p-inputwrapper-focus {
+    border: 2px solid $purple-80;
+  }
+}
