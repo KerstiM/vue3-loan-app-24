@@ -1,4 +1,4 @@
-import { ref, computed, reactive } from 'vue'
+import { computed, reactive } from 'vue'
 import { defineStore } from 'pinia'
 import type { Form } from '@/types';
 
@@ -12,6 +12,10 @@ export const useProductStore = defineStore('product', () => {
     loanAmount: 1500,
     loanPeriod: 48,
   });
+
+  const conditions = {
+    salary: 1000,
+  }
 
   const getMonthlyIncome = () => {
     return form.monthlyIncome;
@@ -44,12 +48,13 @@ export const useProductStore = defineStore('product', () => {
   });
 
   return {
+    calculateMonthlyPayment,
+    conditions,
     form,
-    getMonthlyIncome,
-    getMonthlyPayment,
     getFirstName,
     getLoanAmount,
     getLoanPeriod,
-    calculateMonthlyPayment,
+    getMonthlyIncome,
+    getMonthlyPayment,
   }
 })

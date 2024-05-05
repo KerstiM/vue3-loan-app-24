@@ -3,7 +3,7 @@ import { useProductStore } from '@/stores/productStore';
 
 export function useLoanCalculator() {
   const productStore = useProductStore();
-  const { form, calculateMonthlyPayment, getMonthlyPayment } = productStore;
+  const { form, getMonthlyPayment } = productStore;
   const loanPeriodRef = ref(productStore.form.loanPeriod);
   
   const minAmount = 300;

@@ -1,19 +1,15 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import { ModalOverlay, Calculator, Info, Button } from '@/components';
+import { Button, Calculator, Info, Modal } from '@/components';
 
-const modalOpen = ref(false);
+const modalVisible = ref(false);
 
 const openModal = () => {
-  modalOpen.value = true;
+  modalVisible.value = true;
 };
 
 const closeModal = () => {
-  modalOpen.value = false;
-};
-
-const submit = (event: Event) => {
-  closeModal();
+  modalVisible.value = false;
 };
 </script>
 
@@ -47,23 +43,21 @@ const submit = (event: Event) => {
         </p>
       </div>
     </div>
-
-    <ModalOverlay
-      :visible="modalOpen"
-      @close="closeModal"
-      @submit="submit"
-    />
+    <Modal
+      :visible="modalVisible"
+      @close="closeModal">
+    </Modal>
   </div>
 </template>
 
 <style lang="scss">
-  @import '@/assets/main.scss';
+  @import '@/scss/main.scss';
 
   .calculator-section {
     display: grid;
     grid-template-columns: 1fr;
     flex-direction: column;
-    background: $pink;
+    background: $purple-20;
     padding: 40px 16px 40px 16px;
     overflow:hidden;
 
