@@ -75,7 +75,7 @@
           <IbErrorMessage
             :hasError="v$.firstName.$error"
             :errorMessage="v$.firstName.$errors[0]?.$message"
-          />
+          ></IbErrorMessage>
         </FloatLabel>
 
         <FloatLabel>
@@ -90,7 +90,7 @@
           <IbErrorMessage
             :hasError="v$.lastName.$error"
             :errorMessage="v$.lastName.$errors[0]?.$message"
-          />
+            ></IbErrorMessage>
         </FloatLabel>
 
         <FloatLabel>
@@ -105,7 +105,7 @@
           <IbErrorMessage
             :hasError="v$.mobileNumber.$error"
             :errorMessage="v$.mobileNumber.$errors[0]?.$message"
-          />
+          ></IbErrorMessage>
         </FloatLabel>
 
         <FloatLabel>
@@ -120,7 +120,7 @@
           <IbErrorMessage
             :hasError="v$.email.$error"
             :errorMessage="v$.email.$errors[0]?.$message"
-          />
+          ></IbErrorMessage>
         </FloatLabel>
 
         <FloatLabel>
@@ -135,7 +135,7 @@
           <IbErrorMessage
             :hasError="v$.monthlyIncome.$error"
             :errorMessage="v$.monthlyIncome.$errors[0]?.$message"
-          />
+          ></IbErrorMessage>
         </FloatLabel>
 
         <IbButton
